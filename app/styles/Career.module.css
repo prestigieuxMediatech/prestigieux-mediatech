@@ -1,0 +1,293 @@
+/* =========================
+   PAGE WRAPPER
+========================= */
+.pageView {
+  display: block;
+  min-height: 100vh;
+  padding-top: var(--nav-h);
+}
+
+.pageView.active {
+  display: block;
+  animation: pageIn 0.4s var(--ease-out) both;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =========================
+   HERO SECTION (FIXED)
+========================= */
+
+.pageHero {
+  padding: calc(var(--nav-h) + 4rem) clamp(1.2rem, 5vw, 4rem) 4rem;
+  background: var(--ink2);
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+
+/* remove old glow */
+.pageHero::before {
+  display: none;
+}
+
+/* new glow (same as About) */
+.pageHero::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  background: radial-gradient(
+    ellipse at right center,
+    var(--gold-glow),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.pageHeroInner {
+  max-width: 1180px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* HERO TEXT */
+.pageHero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 600;
+  line-height: 1.08;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.phSub {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 580px;
+}
+
+/* =========================
+   TAG / BADGE
+========================= */
+
+.tag {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.9rem;
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+.tag::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 18px;
+  height: 1px;
+  background: var(--gold);
+  transform: translateY(-50%);
+}
+
+/* =========================
+   SECTION LAYOUT
+========================= */
+
+.section {
+  padding: 5rem clamp(1.2rem, 5vw, 4rem);
+}
+
+.sectionInner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.12;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+/* =========================
+   SERVICES GRID
+========================= */
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 20px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+  margin-top: 3rem;
+}
+
+/* =========================
+   SERVICE CARD
+========================= */
+
+.svcCard {
+  background: var(--ink);
+  padding: 2.2rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin: 10px;
+  min-height: 260px;
+}
+
+[data-theme="light"] .svcCard {
+  background: var(--surface);
+}
+
+.svcCard:hover {
+  background: var(--ink2);
+}
+
+[data-theme="light"] .svcCard:hover {
+  background: var(--ink);
+}
+
+.svcCard::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+  background: var(--gold);
+  transition: height 0.35s var(--ease);
+}
+
+.svcCard:hover::after {
+  height: 100%;
+}
+
+/* =========================
+   ICON BOX
+========================= */
+
+.svcIcon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line2);
+  border-radius: 6px;
+  margin-bottom: 0.4rem;
+  flex-shrink: 0;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.svcIcon svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.svcCard:hover .svcIcon {
+  border-color: #333333;
+  background: rgba(51, 51, 51, 0.15);
+}
+
+[data-theme="light"] .svcCard:hover .svcIcon {
+  border-color: #1a1a1a;
+  background: rgba(26, 26, 26, 0.15);
+}
+
+[data-theme="dark"] .svcCard:hover .svcIcon {
+  border-color: #666666;
+  background: rgba(102, 102, 102, 0.15);
+}
+
+/* =========================
+   TEXT STYLES
+========================= */
+
+.svcName {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.svcDesc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.7;
+  flex: 1;
+}
+
+/* =========================
+   LIGHT THEME SUPPORT
+========================= */
+
+[data-theme="light"] .sectionAlt {
+  background: var(--ink3);
+}
+
+.sectionAlt {
+  background: var(--ink2);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 4rem 1.2rem;
+  }
+
+  .pageHero {
+    padding: calc(var(--nav-h) + 2.5rem) 1.5rem 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageHero {
+    padding: calc(var(--nav-h) + 2rem) 1.2rem 2.5rem;
+  }
+
+  .pageHero h1 {
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+  }
+
+  .phSub {
+    font-size: 0.88rem;
+  }
+}

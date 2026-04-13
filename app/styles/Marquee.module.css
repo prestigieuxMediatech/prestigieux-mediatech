@@ -1,0 +1,47 @@
+.marqueeWrap {
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 0.8rem 0;
+  background: var(--ink2);
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 35s linear infinite;
+}
+
+.marqueeTrack span {
+  font-family: "DM Mono", monospace;
+  font-size: 0.65rem;
+  color: var(--text);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0 2rem;
+  white-space: nowrap;
+}
+
+.sep {
+  color: var(--gold);
+  font-size: 0.5rem;
+  align-self: center;
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* LIGHT THEME */
+[data-theme="light"] .marqueeWrap {
+  background: rgb(3, 26, 102);
+  
+}
+[data-theme="light"] .marqueeTrack span {
+  color: rgb(243, 243, 245);
+}

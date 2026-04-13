@@ -1,0 +1,540 @@
+/* ══ BLOG MODULE CSS ══ */
+
+/* ── Page Hero ── */
+.page-view {
+  background: var(--ink);
+  min-height: 100vh;
+}
+
+.page-hero {
+  position: relative;
+  background: var(--ink);
+  overflow: hidden;
+  padding: calc(var(--nav-h, 72px) + 4rem) clamp(1.2rem, 6vw, 5rem) 0;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 90% 100% at 50% 0%, black 40%, transparent 100%);
+  pointer-events: none;
+}
+
+.page-hero-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+/* ── Tag ── */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.6rem;
+  position: relative;
+  padding-left: 1.6rem;
+}
+.tag::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 20px;
+  height: 1px;
+  background: var(--gold);
+  transform: translateY(-50%);
+}
+
+/* ── Hero Heading ── */
+.page-hero-inner h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.08;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.ph-sub {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 560px;
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+}
+
+/* ── Hero Meta Bar ── */
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 1.4rem 0;
+  border-top: 1px solid var(--line);
+  margin-top: 0.5rem;
+}
+
+.meta-author {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.meta-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dk));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.8rem;
+  color: var(--ink);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.meta-author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.meta-author-name {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.01em;
+}
+
+.meta-author-role {
+  font-size: 0.68rem;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.05em;
+}
+
+.meta-divider {
+  width: 1px;
+  height: 28px;
+  background: var(--line2);
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.04em;
+}
+
+.meta-item svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  color: var(--gold);
+}
+
+/* ── Hero Feature Image ── */
+.hero-image-wrap {
+  position: relative;
+  margin: 2.5rem auto 0;
+  max-width: 860px;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+  border: 1px solid var(--line2);
+  border-bottom: none;
+}
+
+.hero-image-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--ink) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+/* ══ CONTENT SECTION ══ */
+.section {
+  padding: 0 clamp(1.2rem, 6vw, 5rem) 6rem;
+  background: var(--ink);
+}
+
+.section-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* ── Article Body ── */
+.article {
+  padding-top: 3rem;
+  min-width: 0;
+}
+
+.article p {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--text2);
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+
+.article p:first-child {
+  font-size: 1.12rem;
+  color: var(--text);
+  font-weight: 400;
+  line-height: 1.85;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 2.5rem;
+}
+
+.article h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+  font-weight: 600;
+  color: var(--text);
+  margin: 2.8rem 0 1.1rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+.article h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.25em;
+  bottom: 0.25em;
+  width: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+.article hr {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 2.5rem 0 0;
+}
+
+/* ── Bullet Paragraphs → Styled Lists ── */
+.article p:has(br) {
+  background: var(--ink2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1.2rem 1.4rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.82rem;
+  line-height: 2;
+  color: var(--text2);
+  letter-spacing: 0.01em;
+}
+
+/* ── Pullquote ── */
+.pullquote {
+  border-left: 3px solid var(--gold);
+  padding: 1.2rem 1.6rem;
+  margin: 2rem 0;
+  background: linear-gradient(90deg, rgba(79,142,247,.06) 0%, transparent 100%);
+  border-radius: 0 6px 6px 0;
+}
+
+.pullquote p {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem !important;
+  font-style: italic;
+  color: var(--text) !important;
+  line-height: 1.7 !important;
+  margin: 0 !important;
+  border: none !important;
+  padding: 0 !important;
+  font-weight: 400 !important;
+}
+
+/* ── Section Number Badge ── */
+.section-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--gold);
+  color: var(--ink);
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: 'DM Mono', monospace;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+/* ── Final Thought Box ── */
+.final-box {
+  background: var(--ink2);
+  border: 1px solid var(--line2);
+  border-top: 3px solid var(--gold);
+  border-radius: 0 0 8px 8px;
+  padding: 2rem 2rem;
+  margin-top: 2.5rem;
+}
+
+.final-box h2 {
+  margin-top: 0 !important;
+  padding-left: 0 !important;
+}
+.final-box h2::before {
+  display: none;
+}
+
+.final-box p {
+  font-size: 0.95rem !important;
+  border: none !important;
+  background: none !important;
+  padding: 0 !important;
+}
+
+/* ── Share / CTA strip ── */
+.article-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.share-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.share-btns {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.share-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 7px 16px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid var(--line2);
+  color: var(--text2);
+  background: var(--ink2);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.share-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ══ SIDEBAR ══ */
+.sidebar {
+  padding-top: 3rem;
+  position: sticky;
+  top: calc(var(--nav-h, 72px) + 2rem);
+}
+
+.sidebar-block {
+  background: var(--ink2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.4rem;
+  margin-bottom: 1.4rem;
+}
+
+.sidebar-block-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.sidebar-block-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line2);
+}
+
+/* TOC */
+.toc-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.toc-list li a {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.76rem;
+  color: var(--muted);
+  line-height: 1.5;
+  padding: 0.35rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.toc-list li a:hover {
+  color: var(--text);
+  background: var(--ink3);
+}
+.toc-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Key Takeaways */
+.takeaway-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.takeaway-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.78rem;
+  color: var(--text2);
+  line-height: 1.5;
+}
+.takeaway-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+/* CTA Block */
+.sidebar-cta {
+  background: linear-gradient(135deg, var(--gold-dk), var(--gold));
+  border-radius: 8px;
+  padding: 1.6rem;
+  text-align: center;
+}
+.sidebar-cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.sidebar-cta-sub {
+  font-size: 0.74rem;
+  color: rgba(10,12,15,0.75);
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+}
+.sidebar-cta-btn {
+  display: block;
+  background: var(--ink);
+  color: var(--text);
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  transition: opacity 0.2s;
+}
+.sidebar-cta-btn:hover {
+  opacity: 0.85;
+}
+
+/* ── Progress bar ── */
+.read-progress {
+  position: fixed;
+  top: var(--nav-h, 72px);
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: transparent;
+  z-index: 999;
+}
+.read-progress-bar {
+  height: 100%;
+  background: var(--gold);
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ── Responsive ── */
+@media (max-width: 800px) {
+  .section-inner {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    position: static;
+    order: -1;
+  }
+  .sidebar-block:not(:first-child) {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-meta {
+    gap: 1rem;
+  }
+  .meta-divider {
+    display: none;
+  }
+}

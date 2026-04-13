@@ -1,0 +1,149 @@
+/* Team Page - Complete Styles */
+
+.page-view {
+  display: block !important;
+  min-height: 100vh;
+  padding-top: var(--nav-h);
+}
+
+.page-hero {
+  padding: calc(var(--nav-h) + 4rem) clamp(1.2rem, 5vw, 4rem) 4rem;
+  background: var(--ink2);
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+
+[data-theme="light"] .page-hero {
+  background: #eeedf1;
+}
+
+.page-hero::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  background: radial-gradient(ellipse at right center, var(--gold-glow), transparent 70%);
+  pointer-events: none;
+}
+
+.page-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.page-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  line-height: 1.08;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.ph-sub {
+  font-size: .95rem;
+  color: var(--muted);
+  max-width: 580px;
+  line-height: 1.8;
+}
+
+.tag {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: .65rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: .9rem;
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+.tag::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 18px;
+  height: 1px;
+  background: var(--gold);
+  transform: translateY(-50%);
+}
+
+.section {
+  padding: 5rem clamp(1.2rem, 5vw, 4rem);
+  background: var(--ink2);
+}
+
+.section-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.2rem;
+  margin-top: 3rem;
+}
+
+.team-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.team-card:hover {
+  border-color: rgba(200, 169, 110, 0.35);
+}
+
+.team-photo {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background: var(--ink3);
+}
+
+.team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.team-card:hover .team-photo img {
+  transform: scale(1.04);
+}
+
+.team-info {
+  padding: 1.4rem;
+}
+
+.team-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.team-role {
+  font-size: .68rem;
+  color: var(--gold);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-family: 'DM Mono', monospace;
+  margin: .3rem 0 .6rem;
+}
+
+.team-bio {
+  font-size: .8rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+

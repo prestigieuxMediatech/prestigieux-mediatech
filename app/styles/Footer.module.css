@@ -1,0 +1,322 @@
+/* =========================
+   FOOTER BASE
+========================= */
+.footer {
+  background: #111;
+  padding: 5rem clamp(1.5rem, 5vw, 3rem) 2rem;
+}
+
+/* =========================
+   GRID LAYOUT
+========================= */
+.footerGrid {
+  max-width: 1180px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+}
+
+/* =========================
+   BRAND
+========================= */
+.footerLogo {
+  height: 36px;
+  margin-bottom: 1rem;
+}
+
+.footerBrandBio {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+}
+
+/* =========================
+   CONTACTS
+========================= */
+.footerContacts {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footerContactLink {
+  color: #aaa;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+
+.footerContactLink:hover {
+  color: var(--gold);
+}
+
+/* =========================
+   COLUMNS
+========================= */
+.footerColTitle {
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+  color: #ccc;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.footerCol a {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: #aaa;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+
+.footerCol a:hover {
+  color: var(--gold);
+}
+
+/* =========================
+   BOTTOM
+========================= */
+.footerBottom {
+  margin-top: 3rem;
+  border-top: 1px solid #333;
+  padding-top: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  color: #aaa;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.footerBottom p {
+  margin: 0;
+}
+
+/* =========================
+   HEART ANIMATION
+========================= */
+.heart {
+  color: red;
+  margin: 0 4px;
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* =========================
+   LIGHT THEME
+========================= */
+[data-theme="light"] .footer {
+  background: var(--gold);
+}
+
+[data-theme="light"] .footerColTitle,
+[data-theme="light"] .footerCol a,
+[data-theme="light"] .footerContactLink,
+[data-theme="light"] .footerBrandBio,
+[data-theme="light"] .footerBottom p {
+  color: #fff;
+}
+
+/* =========================
+   TABLET (1024px)
+========================= */
+@media (max-width: 1024px) {
+  .footerGrid {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* =========================
+   TABLET (900px)
+========================= */
+@media (max-width: 900px) {
+  .footerGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+/* =========================
+   MOBILE (640px)
+========================= */
+@media (max-width: 640px) {
+
+  .footer {
+    padding: 4rem 1.5rem 2rem;
+  }
+
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footerBrandBio {
+    font-size: 0.85rem;
+  }
+
+  .footerCol a {
+    font-size: 0.8rem;
+  }
+
+  .footerBottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.4rem;
+  }
+}
+
+/* =========================
+   SMALL MOBILE (480px)
+========================= */
+@media (max-width: 480px) {
+
+  .footer {
+    padding: 3rem 1.2rem 1.5rem;
+  }
+
+  .footerLogo {
+    height: 30px;
+  }
+
+  .footerBrandBio {
+    font-size: 0.8rem;
+  }
+
+  .footerContactLink {
+    font-size: 0.78rem;
+  }
+
+  .footerColTitle {
+    font-size: 0.7rem;
+  }
+
+  .footerCol a {
+    font-size: 0.78rem;
+  }
+
+  .footerBottom {
+    font-size: 0.7rem;
+  }
+}
+
+/* =========================
+   FUNNEL OVERLAY (unchanged but responsive)
+========================= */
+.funnel-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.funnel-overlay.open {
+  display: flex;
+}
+
+.funnel-box {
+  position: relative;
+  background: #111;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.funnel-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: red;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.footerGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+}
+
+/* =========================
+   TABLET
+========================= */
+@media (max-width: 900px) {
+  .footerGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* =========================
+   MOBILE → FLEX 🔥
+========================= */
+@media (max-width: 640px) {
+  .footerGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+.footerSocials {
+  display: flex;
+  gap: 14px;
+  margin-top: 12px; /* space below timing */
+}
+
+.footerSocials a {
+  font-size: 18px;
+  color: #aaa;
+  transition: all 0.3s ease;
+}
+
+.footerSocials a:hover {
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.footerSocials {
+  display: flex;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+/* BASE */
+.footerSocials a {
+  font-size: 20px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+}
+
+/* WHATSAPP */
+.footerSocials a:nth-child(1) {
+  color: #25D366;
+}
+
+/* INSTAGRAM (gradient look) */
+.footerSocials a:nth-child(2) {
+  color: #e6052a;
+}
+
+/* YOUTUBE */
+.footerSocials a:nth-child(3) {
+  color: #FF0000;
+}
+
+/* HOVER EFFECT */
+.footerSocials a:hover {
+  transform: translateY(-3px) scale(1.1);
+  filter: brightness(1.2);
+}
+

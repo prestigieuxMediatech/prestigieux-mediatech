@@ -1,0 +1,174 @@
+
+/* Chat widget */
+.chatWidget{position:fixed;bottom:92px;right:1.2rem;z-index:9995;}
+.chatToggle{
+  width:48px;height:48px;border-radius:50%;
+  background:var(--ink2);border:1.5px solid var(--line2);
+  color:var(--text2);display:flex;align-items:center;justify-content:center;
+  transition:border-color .2s;position:relative;
+}
+.chatToggle:hover{border-color:var(--gold);}
+.chatToggle svg{width:20px;height:20px;}
+.chatNotif{
+  position:absolute;top:-4px;right:-4px;background:var(--gold);color:var(--ink);
+  width:17px;height:17px;border-radius:50%;font-size:.6rem;font-weight:700;
+  display:none;align-items:center;justify-content:center;
+}
+.chatNotif.show{display:flex;}
+.chatPanel{
+  position:absolute;bottom:calc(58px + 8px);right:0;width:310px;
+  background:var(--ink2);border:1px solid var(--line2);border-radius:10px;
+  overflow:hidden;display:none;
+  box-shadow:0 24px 64px rgba(0,0,0,.6);
+}
+.chatPanel.open{display:flex;flex-direction:column;}
+@media(max-width:380px){.chatPanel{width:calc(100vw - 2rem);right:-.2rem;}}
+.chatHead{
+  padding:.9rem 1rem;background:var(--ink3);border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:.7rem;
+}
+.chatAvatar{
+  width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold-dk),var(--gold));
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ink);font-weight:700;font-size:.82rem;flex-shrink:0;
+}
+.chatHeadName{font-size:.84rem;font-weight:600;color:var(--text);}
+.chatHeadStatus{font-size:.7rem;color:var(--gold);}
+.chatClose{margin-left:auto;background:none;border:none;color:var(--muted);font-size:1rem;cursor:pointer;}
+.chatBody{
+  flex:1;max-height:200px;overflow-y:auto;padding:.75rem;
+  display:flex;flex-direction:column;gap:.4rem;
+  scrollbar-width:thin;scrollbar-color:var(--gold) transparent;
+}
+.chatMsg{
+  max-width:88%;padding:.6rem .85rem;border-radius:10px;
+  font-size:.82rem;line-height:1.5;
+}
+.chatMsgBot{background:var(--ink3);color:var(--text2);border-radius:3px 10px 10px 10px;align-self:flex-start;}
+.chatMsg.user{background:var(--gold);color:var(--ink);border-radius:10px 3px 10px 10px;align-self:flex-end;font-weight:500;}
+.chatTyping{display:none;align-items:center;gap:3px;padding:.5rem .85rem;background:var(--ink3);border-radius:3px 10px 10px 10px;width:54px;}
+.chatTyping span{width:5px;height:5px;background:var(--muted);border-radius:50%;animation:typing .9s ease-in-out infinite;}
+.chatTyping span:nth-child(2){animation-delay:.2s;}
+.chatTyping span:nth-child(3){animation-delay:.4s;}
+@keyframes typing{0%,80%,100%{transform:scale(.65);opacity:.4;}40%{transform:scale(1);opacity:1;}}
+.chatFooter{padding:.6rem;border-top:1px solid var(--line);display:flex;gap:.4rem;}
+.chatInput{
+  flex:1;background:var(--surface);border:1px solid var(--line);border-radius:5px;
+  padding:8px 12px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.82rem;
+  resize:none;max-height:70px;outline:none;transition:border-color .2s;
+}
+.chatInput:focus{border-color:rgba(200,169,110,.4);}
+.chatSend{
+  background:var(--gold);color:var(--ink);border:none;border-radius:5px;
+  width:34px;height:34px;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:background .2s;flex-shrink:0;
+}
+.chatSend:hover{background:var(--gold-lt);}
+.chatSend svg{width:14px;height:14px;}
+
+/* ═══════════════════════════════════════
+   CHAT FAQ
+   ═══════════════════════════════════════ */
+.chatFaqSection{width:100%;margin-bottom:.5rem;flex-shrink:0;}
+.chatFaqLabel{
+  font-size:.68rem;font-weight:700;color:var(--text2);
+  text-transform:uppercase;letter-spacing:.07em;
+  margin:0 0 .5rem;display:block;
+}
+.chatFaqItem{border-bottom:1px solid rgba(255,255,255,.08);}
+.chatFaqBtn{
+  width:100%;background:none;border:none;
+  color:#ccc8bf !important;
+  font-size:.78rem;font-family:'DM Sans',sans-serif;font-weight:500;
+  padding:.6rem 0;display:flex;justify-content:space-between;align-items:center;gap:.5rem;
+  text-align:left;cursor:pointer;line-height:1.4;transition:color .2s;
+}
+.chatFaqBtn:hover{color:#c8a96e !important;}
+.chatFaqIcon{
+  min-width:16px;width:16px;height:16px;
+  border:1px solid rgba(255,255,255,.14);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  color:#8a8680;font-size:.65rem;transition:all .3s;
+}
+.chatFaqItem.open .chatFaqIcon{
+  background:var(--text2);border-color:var(--text2);color:#0d0d0d;transform:rotate(45deg);
+}
+.chatFaqAnswer{
+  max-height:0;
+  overflow:hidden;
+  transition:all .3s ease;
+}
+.chatFaqItem.open .chatFaqAnswer{
+  max-height:200px;
+  padding:0.6rem 0;
+}
+.chatFaqAnswer p{
+  font-size:.75rem;color:#8a8680;line-height:1.6;
+  padding:.1rem 0 .55rem;margin:0;
+}
+.chatFaqDivider{border:none;border-top:1px solid rgba(255,255,255,.08);margin:.5rem 0 .25rem;}
+/* WhatsApp float */
+.waBtn{
+  position:fixed;bottom:1.4rem;right:1.2rem;z-index:9994;
+  width:48px;height:48px;border-radius:50%;background:#25d366;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,.35);
+  transition:transform .2s;
+}
+.waBtn:hover{transform:scale(1.1);}
+.waBtn svg{width:24px;height:24px;fill:#fff;}
+
+
+[data-theme="light"] .chatFaqLabel{
+  font-size:.68rem;font-weight:700;color:var(--ink2);
+  text-transform:uppercase;letter-spacing:.07em;
+  margin:0 0 .5rem;display:block;
+}
+
+[data-theme="light"] .chatFaqBtn{
+  width:100%;background:none;border:none;
+  color:var(--ink) !important;
+  font-size:.78rem;font-family:'DM Sans',sans-serif;font-weight:500;
+  padding:.6rem 0;display:flex;justify-content:space-between;align-items:center;gap:.5rem;
+  text-align:left;cursor:pointer;line-height:1.4;transition:color .2s;
+}
+
+[data-theme="light"] .chatFaqBtn:hover{color:var(--ink2) !important;}
+[data-theme="light"] .chatFaqIcon{
+  min-width:16px;width:16px;height:16px;
+  border:1px solid rgba(255,255,255,.14);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  color:var(--ink3);font-size:.65rem;transition:all .3s;
+}
+
+[data-theme="light"] .chatFaqBtn {
+  color: #1a1a1a !important;
+}
+
+[data-theme="light"] .chatFaqBtn:hover {
+  color: #363635 !important;
+}
+
+[data-theme="light"] .chatFaqLabel {
+  color: #202020 !important;
+}
+
+[data-theme="light"] .chatFaqAnswer p {
+  color: #222222 !important;
+}
+
+[data-theme="light"] .chatFaqItem {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .chatFaqIcon {
+  border-color: rgba(0, 0, 0, 0.2) !important;
+  color: #555 !important;
+}
+
+[data-theme="light"] .chatFaqItem.open .chatFaqIcon {
+  background: #fff;        /* dark background */
+  border-color: #1a1a1a;
+  color: #000;             /* white "×" icon */
+}
