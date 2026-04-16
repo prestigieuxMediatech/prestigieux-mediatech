@@ -9,10 +9,10 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false); // Simple state for success message
   
-  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-  const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_KEY;
-  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_KEY;
-  const autoReplyTemplateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_KEY2;
+  const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_ID;
+  const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+  const autoReplyTemplateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID2;
 
   useEffect(() => {
     if (publicKey) emailjs.init(publicKey);
