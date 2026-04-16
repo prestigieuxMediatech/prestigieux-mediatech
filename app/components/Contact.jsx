@@ -1,28 +1,27 @@
 "use client";
 
 import styles from "../styles/Contact.module.css";
-import { FaPhoneAlt, FaEnvelope, FaWhatsapp, FaClock } from "react-icons/fa";
+import { FaPhoneAlt, FaEnvelope, FaWhatsapp, FaClock, FaCheck } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
-
 import { useState, useEffect } from "react";
 
 export default function Contact() {
-
   const [loading, setLoading] = useState(false);
+  const [sent, setSent] = useState(false); // Simple state for success message
+  
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+  const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_KEY;
+  const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_KEY;
+  const autoReplyTemplateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_KEY2;
 
-  // ✅ INIT ONLY ONCE
   useEffect(() => {
-    if (publicKey) {
-      emailjs.init(publicKey);
-    }
+    if (publicKey) emailjs.init(publicKey);
   }, [publicKey]);
 
   const submitContact = async (e) => {
     e.preventDefault();
-
     const form = e.target;
-
+    
     const data = {
       name: form.name.value,
       email: form.email.value,
@@ -31,67 +30,33 @@ export default function Contact() {
       message: form.message.value,
     };
 
-    // Basic validation
     if (!data.email || !data.phone) {
       alert("Please enter Email and Phone number");
       return;
     }
 
     try {
-      if (!publicKey) {
-        throw new Error("EmailJS public key missing from .env.local");
-      
-
+      if (!publicKey || !serviceId || !templateId) {
+        throw new Error("Configuration missing");
       }
 
       setLoading(true);
-
-      await emailjs.send(
-  "service_6skgt3x",
-  "template_0xde739",
-  {
-    name: "Test",
-    email: "test@gmail.com",
-    phone: "1234567890",
-    service: "Test",
-    message: "Hello"
-  },
-  publicKey
-);
-
-
-
-      // ✅ OWNER EMAIL
-      await emailjs.send(
-        "service_6skgt3x",
-        "template_0xde739",
-        data,
-        publicKey
-      );
-
-      // ✅ USER AUTO REPLY
-      if (data.email) {
-        await emailjs.send(
-          "service_6skgt3x",
-          "template_g7rfrxc", // ⚠️ CHECK THIS EXACT ID IN EMAILJS
-          data,
-          publicKey
-        );
+      
+      await emailjs.send(serviceId, templateId, data, publicKey);
+      
+      if (data.email && autoReplyTemplateId) {
+        await emailjs.send(serviceId, autoReplyTemplateId, data, publicKey);
       }
 
-      alert("Message sent successfully 🚀");
+      setSent(true); // Show success message
       form.reset();
+      
+      // Hide message after 5 seconds
+      setTimeout(() => setSent(false), 5000);
 
     } catch (error) {
-      console.error("FULL EmailJS ERROR:", {
-        message: error?.message || error?.text,
-        status: error?.status,
-        details: error,
-        publicKey: publicKey ? "present" : "MISSING",
-        serviceId: "service_6skgt3x"
-      });
-
-      alert(`Send failed: ${error?.message || "Check EmailJS dashboard & console"}`);
+      console.error(error);
+      alert("Failed to send. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -99,17 +64,11 @@ export default function Contact() {
 
   return (
     <div id="page-contact" className={styles.pageView}>
-
       {/* HERO */}
       <div className={styles.pageHero}>
         <div className={styles.pageHeroInner}>
           <div className={styles.tag}>Get In Touch</div>
-
-          <h1>
-            Let&apos;s Grow Your<br />
-            Brand Together
-          </h1>
-
+          <h1>Let&apos;s Grow Your<br />Brand Together</h1>
           <p className={styles.phSub}>
             We reply within 2 hours during business hours — 8 AM to 10 PM, 7 days a week.
           </p>
@@ -119,7 +78,6 @@ export default function Contact() {
       {/* SECTION */}
       <div className={styles.section}>
         <div className={styles.sectionInner}>
-
           <div className={styles.contactGrid}>
 
             {/* FORM */}
@@ -131,8 +89,8 @@ export default function Contact() {
               </div>
 
               <div className={styles.formGroup}>
-                <label className={styles.formLabel}>Email Address</label>
-                <input name="email" placeholder="Enter Email" className={styles.formCtrl} type="email" />
+                <label className={styles.formLabel}>Email Address *</label>
+                <input name="email" placeholder="Enter Email" className={styles.formCtrl} type="email" required />
               </div>
 
               <div className={styles.formGroup}>
@@ -142,7 +100,6 @@ export default function Contact() {
 
               <div className={styles.formGroup}>
                 <label className={styles.formLabel}>Service Interested In</label>
-
                 <select name="service" className={styles.formCtrl}>
                   <option value="">Select a service</option>
                   <option>Website Development</option>
@@ -160,31 +117,26 @@ export default function Contact() {
 
               <div className={styles.formGroup}>
                 <label className={styles.formLabel}>Your Message *</label>
-                <textarea
-                  name="message"
-                  placeholder="Enter Message"
-                  className={styles.formCtrl}
-                  required
-                />
+                <textarea name="message" placeholder="Enter Message" className={styles.formCtrl} required />
               </div>
 
-              <button
-                className={styles.btnPrimary}
-                type="submit"
-                disabled={loading}
-              >
+              <button className={styles.btnPrimary} type="submit" disabled={loading}>
                 {loading ? "Sending..." : "Send Message →"}
               </button>
 
+              {/* SIMPLE SUCCESS MESSAGE */}
+              {sent && (
+                <div className={styles.successMsg}>
+                  <FaCheck style={{ marginRight: "8px" }} />
+                  Your enquiry has been received. We'll reach out to you ASAP!
+                </div>
+              )}
             </form>
 
-            {/* INFO */}
+            {/* INFO SIDE */}
             <div className={styles.contactInfo}>
-
               <div className={styles.infoItem}>
-                <div className={styles.icon}>
-                  <FaPhoneAlt />
-                </div>
+                <div className={styles.icon}><FaPhoneAlt /></div>
                 <div>
                   <div className={styles.infoLabel}>Phone</div>
                   <div className={styles.infoValue}>
@@ -195,31 +147,21 @@ export default function Contact() {
               </div>
 
               <div className={styles.infoItem}>
-                <div className={styles.icon}>
-                  <FaEnvelope />
-                </div>
+                <div className={styles.icon}><FaEnvelope /></div>
                 <div>
                   <div className={styles.infoLabel}>Email</div>
                   <div className={styles.infoValue}>
-                    <a href="mailto:info@prestigieux.in">
-                      info@prestigieux.in
-                    </a>
+                    <a href="mailto:info@prestigieux.in">info@prestigieux.in</a>
                   </div>
                 </div>
               </div>
 
               <div className={styles.infoItem}>
-                <div className={styles.icon}>
-                  <FaWhatsapp />
-                </div>
+                <div className={styles.icon}><FaWhatsapp /></div>
                 <div>
                   <div className={styles.infoLabel}>WhatsApp</div>
                   <div className={styles.infoValue}>
-                    <a
-                      href="https://wa.me/919987952982"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
+                    <a href="https://wa.me/919987952982" target="_blank" rel="noreferrer">
                       Chat with us on WhatsApp →
                     </a>
                   </div>
@@ -227,14 +169,11 @@ export default function Contact() {
               </div>
 
               <div className={styles.infoItem}>
-                <div className={styles.icon}>
-                  <FaClock />
-                </div>
+                <div className={styles.icon}><FaClock /></div>
                 <div>
                   <div className={styles.infoLabel}>Business Hours</div>
                   <div className={styles.infoValue}>
-                    8:00 AM – 10:00 PM<br />
-                    Monday to Sunday
+                    8:00 AM – 10:00 PM<br />Monday to Sunday
                   </div>
                 </div>
               </div>
@@ -243,19 +182,13 @@ export default function Contact() {
                 <a className={styles.btnPrimary} href="https://wa.me/919987952982">
                   WhatsApp Us Now <FaWhatsapp />
                 </a>
-
                 <a className={styles.btnGhost} href="tel:+919987952982">
-                  Call Now
-                  <span>
-                    <FaPhoneAlt /> +91 9987952982
-                  </span>
+                  Call Now <span><FaPhoneAlt /> +91 9987952982</span>
                 </a>
               </div>
-
             </div>
 
           </div>
-
         </div>
       </div>
     </div>
