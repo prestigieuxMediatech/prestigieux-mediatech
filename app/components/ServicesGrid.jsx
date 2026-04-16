@@ -18,7 +18,8 @@ import {
   Users
 } from "lucide-react";
 
-export default function ServicesGrid() {
+export default function ServicesGrid({ className = '' }) {
+  // effectiveClass not used - will add reveal to svcCard directly for staggered effect
   const router = useRouter();
 
   const services = [
@@ -55,7 +56,7 @@ export default function ServicesGrid() {
             return (
               <div
                 key={service.id}
-                className={styles.svcCard}
+                className={`reveal ${styles.svcCard}`}
                 onClick={() => router.push(`/services/${service.id}`)}
               >
                 <div className={styles.svcIcon}>

@@ -92,3 +92,8 @@
   font-weight: 700;
   color: var(--text);
 }
+
+.section {
+    background: var(--ink3);
+    padding: 4rem 0;
+}

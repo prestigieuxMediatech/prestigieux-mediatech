@@ -29,8 +29,7 @@ export default function ServiceDetailPage() {
   const goBack = () => router.push("/services");
 
   const openFunnel = () => {
-    const overlay = document.getElementById("funnelOverlay");
-    if (overlay) overlay.style.display = "block";
+    window.openFunnel?.();
   };
 
   /* ══════════════════════════════════════════

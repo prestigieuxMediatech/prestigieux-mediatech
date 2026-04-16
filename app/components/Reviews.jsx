@@ -30,7 +30,7 @@ export default function Reviews() {
           {reviews.map(({ text, name, role }, i) => (
             <div
               key={i}
-              className={styles.reviewCard}
+              className={`reveal ${styles.reviewCard}`}
               style={{ ["--delay"]: `${i * 0.1}s` }}
             >
               {/* ⭐ Stars */}

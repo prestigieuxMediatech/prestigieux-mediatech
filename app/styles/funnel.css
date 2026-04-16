@@ -137,8 +137,9 @@
 
 .funnel-opt:hover {
   border-color: rgba(200, 169, 110, 0.35);
-  background: var(--gold-glow);
+  background: var(--gold);
 }
+
 
 .funnel-opt.selected {
   border-color: rgba(200, 169, 110, 0.6);

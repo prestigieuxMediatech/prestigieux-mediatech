@@ -106,7 +106,7 @@ export default function Contact() {
           <div className={styles.tag}>Get In Touch</div>
 
           <h1>
-            Let's Grow Your<br />
+            Let&apos;s Grow Your<br />
             Brand Together
           </h1>
 
@@ -127,17 +127,17 @@ export default function Contact() {
 
               <div className={styles.formGroup}>
                 <label className={styles.formLabel}>Your Name *</label>
-                <input name="name" className={styles.formCtrl} type="text" required />
+                <input name="name" placeholder="Enter Name" className={styles.formCtrl} type="text" required />
               </div>
 
               <div className={styles.formGroup}>
                 <label className={styles.formLabel}>Email Address</label>
-                <input name="email" className={styles.formCtrl} type="email" />
+                <input name="email" placeholder="Enter Email" className={styles.formCtrl} type="email" />
               </div>
 
               <div className={styles.formGroup}>
                 <label className={styles.formLabel}>Phone / WhatsApp *</label>
-                <input name="phone" className={styles.formCtrl} type="tel" required />
+                <input name="phone" placeholder="Enter Phone Number" className={styles.formCtrl} type="tel" required />
               </div>
 
               <div className={styles.formGroup}>
@@ -162,6 +162,7 @@ export default function Contact() {
                 <label className={styles.formLabel}>Your Message *</label>
                 <textarea
                   name="message"
+                  placeholder="Enter Message"
                   className={styles.formCtrl}
                   required
                 />

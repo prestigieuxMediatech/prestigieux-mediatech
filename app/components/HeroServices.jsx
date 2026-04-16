@@ -2,19 +2,9 @@
 
 import style from "../styles/HeroServices.module.css";
 import { useRouter } from "next/navigation";
-
 import {
-  FaGlobe,
-  FaMobileAlt,
-  FaBullseye,
-  FaChartBar,
-  FaPenNib,
-  FaBullhorn,
-  FaPalette,
-  FaLayerGroup,
-  FaUsers,
-  FaArrowRight,
-  FaWhatsapp
+  FaGlobe, FaMobileAlt, FaBullseye, FaChartBar, FaPenNib,
+  FaBullhorn, FaPalette, FaLayerGroup, FaUsers, FaArrowRight, FaWhatsapp
 } from "react-icons/fa";
 
 export default function HeroServices() {
@@ -24,8 +14,8 @@ export default function HeroServices() {
     router.push(`/services/${slug}`);
   };
 
-  const openFunnel = () => {
-    alert("Funnel form open logic here"); // you can replace later
+  const goToContact = () => {
+    router.push('/contact');
   };
 
   return (
@@ -34,14 +24,8 @@ export default function HeroServices() {
       {/* HERO */}
       <div className={style["page-hero"]}>
         <div className={style["page-hero-inner"]}>
-          <div className={`${style.tag} ${style.servicepage_tag}`}>
-            What We Do
-          </div>
-
-          <h1>
-            Complete Digital<br />Growth Services
-          </h1>
-
+          <div className={style.tag}>What We Do</div>
+          <h1>Complete Digital<br />Growth Services</h1>
           <p className={style["ph-sub"]}>
             From a simple website to a full-stack growth engine — click any service to explore detailed information, pricing and our process.
           </p>
@@ -49,12 +33,12 @@ export default function HeroServices() {
       </div>
 
       {/* SERVICES */}
-      <div className={`${style.section} ${style["servicespage-section"]}`}>
+      <div className={style.section}>
         <div className={style["section-inner"]}>
           <div className={style["services-grid"]}>
 
             {/* 1 */}
-            <div className={`${style["svc-card"]} ${style.reveal}`} onClick={() => navigateTo("svc-web")}>
+            <div className={style["svc-card"]} onClick={() => navigateTo("svc-web")}>
               <div className={style["svc-badge"]}>Most Popular</div>
               <div className={style["svc-icon"]}><FaGlobe /></div>
               <div className={style["svc-name"]}>Website Development</div>
@@ -63,7 +47,7 @@ export default function HeroServices() {
             </div>
 
             {/* 2 */}
-            <div className={`${style["svc-card"]} ${style.reveal}`} onClick={() => navigateTo("svc-app")}>
+            <div className={style["svc-card"]} onClick={() => navigateTo("svc-app")}>
               <div className={style["svc-badge"]}>Fast Delivery</div>
               <div className={style["svc-icon"]}><FaMobileAlt /></div>
               <div className={style["svc-name"]}>Mobile App Development</div>
@@ -72,7 +56,7 @@ export default function HeroServices() {
             </div>
 
             {/* 3 */}
-            <div className={`${style["svc-card"]} ${style.reveal}`} onClick={() => navigateTo("svc-perf")}>
+            <div className={style["svc-card"]} onClick={() => navigateTo("svc-perf")}>
               <div className={style["svc-badge"]}>#1 In Demand</div>
               <div className={style["svc-icon"]}><FaBullseye /></div>
               <div className={style["svc-name"]}>Performance Marketing</div>
@@ -81,7 +65,7 @@ export default function HeroServices() {
             </div>
 
             {/* 4 */}
-            <div className={`${style["svc-card"]} ${style.reveal}`} onClick={() => navigateTo("svc-leadgen")}>
+            <div className={style["svc-card"]} onClick={() => navigateTo("svc-leadgen")}>
               <div className={style["svc-badge"]}>Revenue Driver</div>
               <div className={style["svc-icon"]}><FaChartBar /></div>
               <div className={style["svc-name"]}>Lead Generation</div>
@@ -90,7 +74,7 @@ export default function HeroServices() {
             </div>
 
             {/* 5 */}
-            <div className={`${style["svc-card"]} ${style.reveal}`} onClick={() => navigateTo("svc-content")}>
+            <div className={style["svc-card"]} onClick={() => navigateTo("svc-content")}>
               <div className={style["svc-badge"]}>Viral Potential</div>
               <div className={style["svc-icon"]}><FaPenNib /></div>
               <div className={style["svc-name"]}>Content Creation</div>
@@ -99,7 +83,7 @@ export default function HeroServices() {
             </div>
 
             {/* 6 */}
-            <div className={`${style["svc-card"]} ${style.reveal}`} onClick={() => navigateTo("svc-seo")}>
+            <div className={style["svc-card"]} onClick={() => navigateTo("svc-seo")}>
               <div className={style["svc-badge"]}>Long-Term ROI</div>
               <div className={style["svc-icon"]}><FaBullhorn /></div>
               <div className={style["svc-name"]}>SEO & Digital Marketing</div>
@@ -108,7 +92,7 @@ export default function HeroServices() {
             </div>
 
             {/* 7 */}
-            <div className={`${style["svc-card"]} ${style.reveal}`} onClick={() => navigateTo("svc-brand")}>
+            <div className={style["svc-card"]} onClick={() => navigateTo("svc-brand")}>
               <div className={style["svc-badge"]}>Premium Design</div>
               <div className={style["svc-icon"]}><FaPalette /></div>
               <div className={style["svc-name"]}>Brand Identity</div>
@@ -117,7 +101,7 @@ export default function HeroServices() {
             </div>
 
             {/* 8 */}
-            <div className={`${style["svc-card"]} ${style.reveal}`} onClick={() => navigateTo("svc-uiux")}>
+            <div className={style["svc-card"]} onClick={() => navigateTo("svc-uiux")}>
               <div className={style["svc-badge"]}>Award Quality</div>
               <div className={style["svc-icon"]}><FaLayerGroup /></div>
               <div className={style["svc-name"]}>UI/UX Design</div>
@@ -126,7 +110,7 @@ export default function HeroServices() {
             </div>
 
             {/* 9 */}
-            <div className={`${style["svc-card"]} ${style.reveal}`} onClick={() => navigateTo("svc-va")}>
+            <div className={style["svc-card"]} onClick={() => navigateTo("svc-va")}>
               <div className={style["svc-badge"]}>Cost-Effective</div>
               <div className={style["svc-icon"]}><FaUsers /></div>
               <div className={style["svc-name"]}>Virtual Assistant</div>
@@ -138,28 +122,32 @@ export default function HeroServices() {
         </div>
       </div>
 
-      {/* CTA SECTION (NOW INCLUDED ✅) */}
-      <div className={`${style.section} ${style["section-alt"]} ${style["about-cta"]}`}>
+      {/* CTA SECTION */}
+      <div className={`${style.section} ${style["section-alt"]}`}>
         <div className={style["section-inner"]}>
-          <div className={`${style["cta-block"]} ${style.reveal}`}>
+          <div className={style["cta-block"]}>
             <h2>Not sure which service you need?</h2>
-            <p>Answer 4 quick questions and get a free personalised recommendation.</p>
-
+            <p>Get a free strategy call and we'll recommend the right solution for your business.</p>
+            
             <div className={style["cta-actions"]}>
-              <button className={style["btn-primary"]} onClick={openFunnel}>
+              <button 
+                type="button"
+                className={style["btn-primary"]} 
+                onClick={goToContact}
+              >
                 Get Free Recommendation
               </button>
 
               <a
-                href="https://wa.me/919987952982"
+                href="https://wa.me/919987952982?text=Hi Prestigieux Mediatech, I'm interested in your services"
                 target="_blank"
+                rel="noopener noreferrer"
                 className={style["btn-ghost"]}
               >
                 <FaWhatsapp />
-                Ask on WhatsApp
+                <span>Ask on WhatsApp</span>
               </a>
             </div>
-
           </div>
         </div>
       </div>

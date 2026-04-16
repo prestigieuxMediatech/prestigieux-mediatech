@@ -2,321 +2,286 @@
    FOOTER BASE
 ========================= */
 .footer {
-  background: #111;
+  background: var(--ink2);
   padding: 5rem clamp(1.5rem, 5vw, 3rem) 2rem;
+  border-top: 1px solid var(--line);
+  transition: background 0.3s ease;
 }
 
 /* =========================
    GRID LAYOUT
 ========================= */
 .footerGrid {
-  max-width: 1180px;
-  margin: auto;
+  max-width: 1200px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  gap: 4rem;
 }
 
 /* =========================
-   BRAND
+   BRAND COLUMN
 ========================= */
+.brandColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* LOGO WRAPPER - Fixed stretching */
+.logoWrapper {
+  position: relative;
+  height: 46px;
+  width: 180px;
+  margin-bottom: 0.5rem;
+}
+
 .footerLogo {
-  height: 36px;
-  margin-bottom: 1rem;
+  object-fit: contain !important;
+  object-position: left center;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Text logo fallback */
+.logoText {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.accent {
+  color: var(--accent);
+  font-style: italic;
+}
+
+/* Map wrapper */
+.mapWrapper {
+  width: 100%;
+  max-width: 280px;
+  height: 120px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  margin: 0.5rem 0;
 }
 
 .footerBrandBio {
-  font-size: 0.9rem;
-  color: #aaa;
-  margin-bottom: 1.2rem;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  color: var(--text2);
+  line-height: 1.7;
+  max-width: 340px;
 }
 
 /* =========================
-   CONTACTS
+   SOCIAL ICONS
 ========================= */
-.footerContacts {
+.footerSocials {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  gap: 12px;
+  margin-top: 0.5rem;
 }
 
-.footerContactLink {
-  color: #aaa;
-  font-size: 0.85rem;
-  transition: color 0.2s;
+.footerSocials a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--surface-elevated);
+  border: 1px solid var(--line);
+  color: var(--text2);
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.footerContactLink:hover {
-  color: var(--gold);
+.footerSocials a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px var(--gold-glow);
 }
 
 /* =========================
    COLUMNS
 ========================= */
+.footerCol {
+  display: flex;
+  flex-direction: column;
+}
+
 .footerColTitle {
   font-size: 0.75rem;
-  margin-bottom: 1rem;
-  color: #ccc;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  color: var(--text);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
+  font-family: var(--font-mono);
 }
 
 .footerCol a {
   display: block;
-  margin-bottom: 0.6rem;
-  color: #aaa;
-  font-size: 0.85rem;
-  transition: color 0.2s;
+  margin-bottom: 0.85rem;
+  color: var(--text2);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  position: relative;
+  width: fit-content;
+}
+
+.footerCol a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
 }
 
 .footerCol a:hover {
-  color: var(--gold);
+  color: var(--text);
+}
+
+.footerCol a:hover::after {
+  width: 100%;
 }
 
 /* =========================
    BOTTOM
 ========================= */
 .footerBottom {
-  margin-top: 3rem;
-  border-top: 1px solid #333;
-  padding-top: 1.2rem;
+  max-width: 1200px;
+  margin: 4rem auto 0;
+  border-top: 1px solid var(--line);
+  padding-top: 2rem;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  color: #aaa;
-  font-size: 0.75rem;
-  text-align: center;
-}
-
-.footerBottom p {
-  margin: 0;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.85rem;
 }
 
 /* =========================
-   HEART ANIMATION
-========================= */
-.heart {
-  color: red;
-  margin: 0 4px;
-  animation: pulse 1.2s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); }
-}
-
-/* =========================
-   LIGHT THEME
+   LIGHT THEME FIXES
 ========================= */
 [data-theme="light"] .footer {
-  background: var(--gold);
+  background: var(--surface);
+  border-color: var(--line2);
 }
 
-[data-theme="light"] .footerColTitle,
-[data-theme="light"] .footerCol a,
-[data-theme="light"] .footerContactLink,
-[data-theme="light"] .footerBrandBio,
-[data-theme="light"] .footerBottom p {
-  color: #fff;
+[data-theme="light"] .footerSocials a {
+  background: var(--ink);
+  border-color: var(--line);
+  color: var(--text);
+}
+
+[data-theme="light"] .footerSocials a:hover {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border-color: var(--accent);
+}
+
+/* Ensure text is dark on light background */
+[data-theme="light"] .footerColTitle {
+  color: var(--text);
+}
+
+[data-theme="light"] .footerCol a {
+  color: var(--text2);
+}
+
+[data-theme="light"] .footerCol a:hover {
+  color: var(--text);
+}
+
+[data-theme="light"] .footerBrandBio {
+  color: var(--text2);
+}
+
+[data-theme="light"] .logoText {
+  color: var(--text);
 }
 
 /* =========================
-   TABLET (1024px)
+   RESPONSIVE
 ========================= */
 @media (max-width: 1024px) {
   .footerGrid {
     grid-template-columns: 1.5fr 1fr 1fr;
-    gap: 2.5rem;
+    gap: 3rem;
+  }
+  
+  .brandColumn {
+    grid-column: 1 / -1;
+  }
+  
+  .mapWrapper {
+    max-width: 400px;
   }
 }
 
-/* =========================
-   TABLET (900px)
-========================= */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .footerGrid {
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 2.5rem 2rem;
+  }
+  
+  .brandColumn {
+    grid-column: span 2;
+  }
+  
+  .logoWrapper {
+    height: 40px;
+    width: 160px;
+  }
+  
+  .footerBottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
   }
 }
 
-/* =========================
-   MOBILE (640px)
-========================= */
-@media (max-width: 640px) {
-
+@media (max-width: 480px) {
   .footer {
-    padding: 4rem 1.5rem 2rem;
+    padding: 3rem 1.25rem 1.5rem;
   }
-
+  
   .footerGrid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-
+  
+  .brandColumn {
+    grid-column: span 1;
+  }
+  
+  .logoWrapper {
+    height: 38px;
+    width: 150px;
+  }
+  
   .footerBrandBio {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
-
-  .footerCol a {
-    font-size: 0.8rem;
+  
+  .mapWrapper {
+    max-width: 100%;
+    height: 140px;
   }
-
-  .footerBottom {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0.4rem;
-  }
-}
-
-/* =========================
-   SMALL MOBILE (480px)
-========================= */
-@media (max-width: 480px) {
-
-  .footer {
-    padding: 3rem 1.2rem 1.5rem;
-  }
-
-  .footerLogo {
-    height: 30px;
-  }
-
-  .footerBrandBio {
-    font-size: 0.8rem;
-  }
-
-  .footerContactLink {
-    font-size: 0.78rem;
-  }
-
+  
   .footerColTitle {
-    font-size: 0.7rem;
+    margin-bottom: 1rem;
   }
-
-  .footerCol a {
-    font-size: 0.78rem;
-  }
-
+  
   .footerBottom {
-    font-size: 0.7rem;
+    margin-top: 3rem;
+    font-size: 0.8rem;
   }
 }
-
-/* =========================
-   FUNNEL OVERLAY (unchanged but responsive)
-========================= */
-.funnel-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.funnel-overlay.open {
-  display: flex;
-}
-
-.funnel-box {
-  position: relative;
-  background: #111;
-  width: 90%;
-  max-width: 500px;
-  border-radius: 12px;
-  padding: 20px;
-}
-
-.funnel-close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: red;
-  color: white;
-  border: none;
-  padding: 6px 10px;
-  cursor: pointer;
-}
-.footerGrid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem;
-}
-
-/* =========================
-   TABLET
-========================= */
-@media (max-width: 900px) {
-  .footerGrid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* =========================
-   MOBILE → FLEX 🔥
-========================= */
-@media (max-width: 640px) {
-  .footerGrid {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-}
-.footerSocials {
-  display: flex;
-  gap: 14px;
-  margin-top: 12px; /* space below timing */
-}
-
-.footerSocials a {
-  font-size: 18px;
-  color: #aaa;
-  transition: all 0.3s ease;
-}
-
-.footerSocials a:hover {
-  color: var(--gold);
-  transform: translateY(-2px);
-}
-
-.footerSocials {
-  display: flex;
-  gap: 14px;
-  margin-top: 12px;
-}
-
-/* BASE */
-.footerSocials a {
-  font-size: 20px;
-  transition: all 0.3s ease;
-  display: inline-flex;
-}
-
-/* WHATSAPP */
-.footerSocials a:nth-child(1) {
-  color: #25D366;
-}
-
-/* INSTAGRAM (gradient look) */
-.footerSocials a:nth-child(2) {
-  color: #e6052a;
-}
-
-/* YOUTUBE */
-.footerSocials a:nth-child(3) {
-  color: #FF0000;
-}
-
-/* HOVER EFFECT */
-.footerSocials a:hover {
-  transform: translateY(-3px) scale(1.1);
-  filter: brightness(1.2);
-}
-

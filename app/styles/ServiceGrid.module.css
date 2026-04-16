@@ -6,10 +6,13 @@
     background: var(--ink2);
 } */
 .sectionInner {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 3rem);
+  box-sizing: border-box;
 }
+
 
 .tag {
   font-size: 0.9rem;
@@ -18,7 +21,7 @@
 }
 
 .sectionTitle {
-  font-size: 2.2rem;
+  font-size: clamp(1.8rem, 6vw, 2.2rem);
   font-weight: 700;
   color: var(--text);
 }
@@ -38,12 +41,12 @@
   border-radius: var(--r);
   overflow: hidden;
   margin-top: 3rem;
-
-  align-items: stretch; /* ⭐ important */
 }
+
+
 .svcCard {
   background: var(--ink);
-  padding: 2rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
   cursor: pointer;
   transition: 0.3s ease;
 
@@ -53,10 +56,11 @@
 
   position: relative;
 
-  height: 310px;   /* ⭐ FIXED HEIGHT */
-  width: 100%;     /* ⭐ FULL GRID WIDTH */
-  box-sizing: border-box;
+  height: auto;
+  min-height: 260px;
 }
+
+
 
 
 .svcCard:hover {

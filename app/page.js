@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Head from "next/head";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Marquee from "./components/Marquee";
@@ -9,14 +8,15 @@ import Stats from "./components/Stats";
 import ServicesGrid from "./components/ServicesGrid";
 import Reviews from "./components/Reviews";
 import Faq from "./components/Faq";
+import Cta from "./components/Cta";
 import Footer from "./components/Footer";
 import Homeabout from "./components/Homeabout";
+import "./styles/scroll-reveal.css";
 
 export default function Home() {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    //  Canvas setup
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -56,7 +56,7 @@ export default function Home() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(200,169,110,${p.a})`;
+        ctx.fillStyle = `rgba(192,160,107,${p.a})`;
         ctx.fill();
       });
 
@@ -70,7 +70,7 @@ export default function Home() {
             ctx.beginPath();
             ctx.moveTo(pts[i].x, pts[i].y);
             ctx.lineTo(pts[j].x, pts[j].y);
-            ctx.strokeStyle = `rgba(200,169,110,${0.05 * (1 - d / 110)})`;
+            ctx.strokeStyle = `rgba(192,160,107,${0.05 * (1 - d / 110)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -82,7 +82,6 @@ export default function Home() {
 
     loop();
 
-    // Intersection Observer
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -95,7 +94,6 @@ export default function Home() {
     const elements = document.querySelectorAll(".reveal");
     elements.forEach((el) => observer.observe(el));
 
-    
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener("resize", resize);
@@ -105,16 +103,6 @@ export default function Home() {
 
   return (
     <>
-       
-        <Head>
-        <title>Digital Marketing Agency Mumbai</title>
-        <meta
-          name="description"
-          content="Best SEO & Digital Marketing services in Navi Mumbai"
-        />
-        <meta name="keywords" content="seo, digital marketing, mumbai" />
-      </Head>
-      {/* Canvas element */}
       <canvas
         ref={canvasRef}
         id="bg-canvas"
@@ -127,17 +115,10 @@ export default function Home() {
       <Stats />
       <Homeabout />
       <ServicesGrid />
-
       <Reviews />
-      <Faq/>
+      <Faq />
+      <Cta />
       <Footer />
-      {/* Funnel Modal */}
-      <div className="funnel-overlay" id="funnelOverlay">
-        {/* your funnel content */}
-      </div>
     </>
   );
 }
-
-
-

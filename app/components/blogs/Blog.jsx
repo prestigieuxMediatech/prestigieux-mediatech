@@ -377,16 +377,6 @@ src="/blog-hero.png"
               </ul>
             </div>
 
-            {/* CTA */}
-            <div className={styles["sidebar-cta"]}>
-              <div className={styles["sidebar-cta-title"]}>Ready to grow?</div>
-              <div className={styles["sidebar-cta-sub"]}>
-                Let&apos;s talk strategy. Free 30-minute consultation, no strings attached.
-              </div>
-              <a href="#contact" className={styles["sidebar-cta-btn"]}>
-                Book a Call →
-              </a>
-            </div>
 
           </aside>
         </div>

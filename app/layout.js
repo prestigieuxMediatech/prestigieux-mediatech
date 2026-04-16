@@ -6,8 +6,9 @@ import Funnel from "./components/Funnel";
 
 export const metadata = {
   title: "ROI-Driven Digital Marketing Agency in Kharghar & Navi Mumbai",
+  tag: "Best Digital Marketing Agency in Kharghar & Navi Mumbai",
   description:
-    "Best Digital Marketing Agency in Kharghar & Navi Mumbai offering SEO, PPC, Social Media Marketing, Branding, UI/UX Design & Web Development services.",
+    "Digital Marketing & development company in Kharghar & Navi Mumbai offers Branding Designs, Digital Marketking Web Development & Consulting Services.",
   keywords:
     "digital marketing agency mumbai, seo services navi mumbai, web development, branding agency, social media marketing",
   openGraph: {
@@ -79,6 +80,44 @@ export default function RootLayout({ children }) {
             <circle cx="12" cy="12" r="10" />
             <circle cx="12" cy="12" r="6" />
             <circle cx="12" cy="12" r="2" />
+          </symbol>
+
+          <symbol
+            id="ic-arrow-r"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M5 12h14" />
+            <path d="m13 5 7 7-7 7" />
+          </symbol>
+
+          <symbol
+            id="ic-phone"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.66 2.62a2 2 0 0 1-.45 2.11L8.04 9.73a16 16 0 0 0 6.23 6.23l1.28-1.28a2 2 0 0 1 2.11-.45c.84.32 1.72.54 2.62.66A2 2 0 0 1 22 16.92Z" />
+          </symbol>
+
+          <symbol
+            id="ic-mail"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" />
+            <path d="m22 6-10 7L2 6" />
           </symbol>
         </svg>
 

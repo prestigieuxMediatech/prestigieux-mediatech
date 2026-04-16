@@ -54,7 +54,7 @@ export default function Blogpage() {
   return (
     <div id="page-blog" className={styles["page-view"]}>
 
-      {/* ── HERO — unchanged ── */}
+      {/* ── HERO ── */}
       <div className={styles["page-hero"]}>
         <div className={styles["page-hero-inner"]}>
           <div className={styles.tag}>Insights & Updates</div>
@@ -102,18 +102,21 @@ export default function Blogpage() {
                   <span className={styles["blog-tag"]}>{post.tag}</span>
                   <h3 className={styles["blog-title"]}>{post.title}</h3>
                   <p className={styles["blog-desc"]}>{post.description}</p>
-                  <span className={styles["blog-meta"]}>{post.readTime}</span>
+
+                  {/* Footer: read time on left, button on right — never overlaps */}
+                  <div className={styles["blog-row-footer"]}>
+                    <span className={styles["blog-meta"]}>{post.readTime}</span>
+                    <button className={styles["btn"]}>Read More</button>
+                  </div>
                 </div>
-                   <button className={styles["btn"]}>Read More..</button>
-                 
+
                 <div className={styles["blog-arrow"]}>
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                
+
               </article>
-           
             </Link>
           ))}
 

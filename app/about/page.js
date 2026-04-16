@@ -8,13 +8,16 @@ export const metadata = {
 };
 
 
+
+
 export default function About() {
   return (
     <>
       <Navbar />
       <HeroAbout />
+
       <Footer />
-    
     </>
   );
 }
+

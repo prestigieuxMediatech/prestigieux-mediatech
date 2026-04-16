@@ -17,11 +17,18 @@
 
 /* REVIEWS */
 .reviewsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-  gap: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   margin-top: 3rem;
+  justify-content: center;
 }
+
+.reviewCard {
+  flex: 1 1 clamp(320px, 30vw, 380px);
+  max-width: 400px;
+}
+
 
 .reviewCard {
   background: var(--surface);

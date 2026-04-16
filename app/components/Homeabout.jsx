@@ -5,33 +5,20 @@ export default function Homeabout() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-
-        {/* LEFT CONTENT */}
-        <div className={styles.left}>
+        <div className={`reveal ${styles.left}`}>
           <div className={styles.tag}>About Us</div>
-
-          <h2 className={styles.title}>
-            Prestigieux Mediatech
-          </h2>
-
+          <h2 className={styles.title}>Elegant growth systems for modern brands</h2>
           <p className={styles.text}>
-            A Navi Mumbai based digital marketing agency offering branding,
-            social media marketing, UI/UX design, SEO, and web & app development.
-            We help businesses build strong online presence and grow across India
-            with result-driven strategies.
+            In Navi Mumbai and around India, Prestigieux Mediatech is a top digital marketing firm that provides complete solutions including branding, social media marketing, UI/UX design, SEO, and web and application development. We use creative solutions and goal-oriented tactics to help companies build a strong online presence and encourage growth from the bottom up.
           </p>
-
-         <Link href="/about"> <button className={styles.btn}>Learn More</button> </Link>
+          <Link href="/about" className={styles.btn}>
+            Learn More
+          </Link>
         </div>
 
-        {/* RIGHT IMAGE */}
-        <div className={styles.right}>
-          <img
-            src="./abouthome.png"
-            alt="About Prestigieux Mediatech"
-          />
+        <div className={`reveal ${styles.right}`}>
+          <img src="/abouthome.png" alt="Prestigieux Mediatech team workspace" />
         </div>
-
       </div>
     </section>
   );
